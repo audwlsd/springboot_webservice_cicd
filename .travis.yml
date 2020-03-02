@@ -24,9 +24,9 @@ notifications:
   
 # Jar 파일을 S3에 올릴 수 있도록 설정
 before_deploy:
-    - zip -r springboot-webservice-cicd *  # 현재 위치의 모든 파일을 zip
+    - zip -r springboot_webservice_cicd *  # 현재 위치의 모든 파일을 zip
     - mkdir -p deploy   # trvis ci 가 실행 중인 위치에서 생성
-    - mv springboot-webservice-cicd.zip deploy/springboot-webservice-cicd.zip
+    - mv springboot_webservice_cicd.zip deploy/springboot_webservice_cicd.zip
 
 deploy:  # 외부 서비스와 연동될 행위들을 선언하는 곳
     - provider: s3
