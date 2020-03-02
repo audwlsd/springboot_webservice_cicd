@@ -21,3 +21,20 @@ notifications:
     email:
         recipients:
             - annmyongjin7782@gmail.com
+  
+# Jar 파일을 S3에 올릴 수 있도록 설정
+before_deploy:
+    - zip -r springboot-webservice-cicd *  # 현재 위치의 모든 파일을 zip
+    - mkdir -p deploy   # trvis ci 가 실행 중인 위치에서 생성
+    - mv springboot-webservice-cicd.zip deploy/springboot-webservice-cicd.zip
+
+deploy:  # 외부 서비스와 연동될 행위들을 선언하는 곳
+    - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: annmyongjin-springboot-webservice-build
+    region: ap-northeast-2
+    skip_cleanup: ture
+    acl: private # zip 파일 접근 권한 : private
+    local_dir: deploy # befor_deploy에서 생성한 directory, 이 위치의 파일들만 S3로 전송
+    wait-until-deployed: true
