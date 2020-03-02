@@ -37,6 +37,7 @@ deploy:  # 외부 서비스와 연동될 행위들을 선언하는 곳
       local_dir: deploy # befor_deploy에서 생성한 directory, 이 위치의 파일들만 S3로 전송
       wait-until-deployed: true
     
+
     - provider: codedeploy
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $AWS_SECRET_KEY
