@@ -1,0 +1,8 @@
+version: 0.0
+os: linux
+files:
+# code deploy 로 부터 전달받은 파일 중 , destination 으로 이동시켜질 대상들을 지정, rroot 하면 모두 다 지정
+    - source:  /
+      # ec2 인스턴스 내의 주소
+        destination: /home/ec2-user/app/step2/zip/
+        overwrite: yes
