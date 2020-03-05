@@ -46,7 +46,7 @@ deploy:  # 외부 서비스와 연동될 행위들을 선언하는 곳
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $AWS_SECRET_KEY
       bucket: annmyongjin-springboot-webservice-build
-      key: springboot_webservice.zip
+      key: springboot-webservice.zip
       bundle_type: zip
       application: springboot-webservice
       deployment_group: springboot-webservice-group
